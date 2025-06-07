@@ -23,7 +23,6 @@ const SellerDashboard: React.FC = () => {
   const { user } = useAuth();
   const [timeRange, setTimeRange] = useState('month');
   
-  // Filter products to show only those belonging to the current seller
   const sellerProducts = mockProducts.filter(product => product.sellerId === user?.id);
 
   const renderStatusBanner = () => {

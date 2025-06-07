@@ -14,7 +14,6 @@ const LoginPage: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   
-  // Get the intended destination from location state, or default to home
   const from = location.state?.from?.pathname || '/';
   
   const handleSubmit = async (e: React.FormEvent) => {

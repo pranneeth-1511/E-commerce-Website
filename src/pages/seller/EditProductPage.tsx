@@ -22,18 +22,14 @@ const EditProductPage: React.FC = () => {
   const [stock, setStock] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   
-  // Load product data
   useEffect(() => {
     setLoading(true);
     
-    // Simulate API fetch
     setTimeout(() => {
       const foundProduct = mockProducts.find(p => p.id === id);
       
       if (foundProduct) {
         setProduct(foundProduct);
-        
-        // Set form values
         setTitle(foundProduct.title);
         setDescription(foundProduct.description);
         setPrice(foundProduct.price.toString());
@@ -47,10 +43,7 @@ const EditProductPage: React.FC = () => {
   }, [id]);
   
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // In a real app, this would upload the file to a storage service and get back a URL
     if (e.target.files && e.target.files[0]) {
-      // For demo purposes, we'll keep the existing image
-      // In a real app, you would upload and get a new URL
     }
   };
   
@@ -63,17 +56,11 @@ const EditProductPage: React.FC = () => {
     }
     
     setIsSubmitting(true);
-    
-    // In a real app, this would be an API call to update the product
     setTimeout(() => {
-      // In a real app, this would update the product in the database
-      
       setIsSubmitting(false);
       navigate('/seller');
     }, 1000);
   };
-  
-  // Handle product not found or unauthorized access
   if (!loading && (!product || product.sellerId !== user?.id)) {
     return (
       <div className="container mx-auto px-4 py-12 text-center">

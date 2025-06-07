@@ -19,7 +19,6 @@ const CheckoutPage: React.FC = () => {
   const [paymentMethod, setPaymentMethod] = useState('credit-card');
   const [orderPlaced, setOrderPlaced] = useState(false);
   
-  // Shipping information state
   const [shippingAddress, setShippingAddress] = useState<Address>({
     fullName: user?.name || '',
     street: '',
@@ -30,7 +29,6 @@ const CheckoutPage: React.FC = () => {
     phone: '',
   });
   
-  // Payment information state
   const [paymentInfo, setPaymentInfo] = useState({
     cardNumber: '',
     cardName: '',
@@ -47,10 +45,8 @@ const CheckoutPage: React.FC = () => {
   const handlePaymentSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Simulate order processing
     setOrderPlaced(true);
     
-    // Clear cart after successful order
     setTimeout(() => {
       clearCart();
     }, 500);

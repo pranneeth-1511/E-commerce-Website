@@ -10,12 +10,10 @@ const ProductsPage: React.FC = () => {
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
   
-  // Get filter values from URL params
   const initialCategory = queryParams.get('category') || 'All';
   const initialSort = queryParams.get('sort') || 'newest';
-  const initialSearch = queryParams.get('search') || '';
-  
-  // State for products and filters
+  const initialSearch = queryParams.get('search') || ''; 
+
   const [products, setProducts] = useState<Product[]>(mockProducts);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>(mockProducts);
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
@@ -24,7 +22,6 @@ const ProductsPage: React.FC = () => {
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 500]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   
-  // Update URL when filters change
   useEffect(() => {
     const params = new URLSearchParams();
     
@@ -47,16 +44,13 @@ const ProductsPage: React.FC = () => {
     
   }, [selectedCategory, sortOption, searchTerm, navigate, location.pathname]);
   
-  // Apply filters
   useEffect(() => {
     let result = [...mockProducts];
     
-    // Filter by category
     if (selectedCategory !== 'All') {
       result = result.filter(product => product.category === selectedCategory);
     }
     
-    // Filter by search term
     if (searchTerm) {
       const term = searchTerm.toLowerCase();
       result = result.filter(product => 
@@ -65,12 +59,10 @@ const ProductsPage: React.FC = () => {
       );
     }
     
-    // Filter by price range
     result = result.filter(product => 
       product.price >= priceRange[0] && product.price <= priceRange[1]
     );
     
-    // Sort products
     switch (sortOption) {
       case 'priceLow':
         result.sort((a, b) => a.price - b.price);
@@ -83,7 +75,6 @@ const ProductsPage: React.FC = () => {
         break;
       case 'newest':
       default:
-        // Assuming createdAt is a date string
         result.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
         break;
     }
@@ -93,7 +84,6 @@ const ProductsPage: React.FC = () => {
   
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Search is already handled by the useEffect
   };
   
   const clearFilters = () => {
@@ -107,10 +97,8 @@ const ProductsPage: React.FC = () => {
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6">All Products</h1>
       
-      {/* Search and filter controls */}
       <div className="mb-8">
         <div className="flex flex-col md:flex-row gap-4 mb-4">
-          {/* Search input */}
           <form 
             onSubmit={handleSearchSubmit}
             className="relative flex-grow"

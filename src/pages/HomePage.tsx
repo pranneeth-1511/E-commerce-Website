@@ -12,7 +12,6 @@ import ProductCard from '../components/products/ProductCard';
 import { mockProducts, categories } from '../data/mockData';
 
 const HomePage: React.FC = () => {
-  // Get featured products (first 4)
   const featuredProducts = mockProducts.slice(0, 4);
   
   return (
@@ -134,7 +133,7 @@ const HomePage: React.FC = () => {
           <div className="text-center max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold mb-4">Start Selling Today</h2>
             <p className="text-lg mb-6">
-              Join thousands of sellers who have boosted their business with ShopTrade.
+              Join thousands of sellers who have boosted their business with Nextcart.
               Register now to start listing your products.
             </p>
             <Link to="/register" className="btn bg-white text-accent-600 hover:bg-accent-50">

@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <ShoppingBag className="h-6 w-6 text-primary-600" />
-            <span className="text-xl font-bold">ShopTrade</span>
+            <span className="text-xl font-bold">Nextcart</span>
           </Link>
           
           {/* Desktop Navigation */}

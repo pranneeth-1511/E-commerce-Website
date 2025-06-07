@@ -43,7 +43,6 @@ const RegisterPage: React.FC = () => {
       const success = await register(name, email, password, role);
       
       if (success) {
-        // Redirect based on role
         if (role === 'seller') {
           navigate('/seller');
         } else {

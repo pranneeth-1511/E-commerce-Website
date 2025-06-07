@@ -28,17 +28,12 @@ const ProductDetailPage: React.FC = () => {
   
   const { addToCart } = useCart();
   const { showToast } = useToaster();
-  
-  // Fetch product data
+
   useEffect(() => {
     setLoading(true);
-    
-    // Simulate API call
     setTimeout(() => {
       const foundProduct = mockProducts.find(p => p.id === id);
       setProduct(foundProduct || null);
-      
-      // Get related products (same category)
       if (foundProduct) {
         const related = mockProducts
           .filter(p => p.category === foundProduct.category && p.id !== foundProduct.id)
@@ -89,11 +84,9 @@ const ProductDetailPage: React.FC = () => {
     );
   }
   
-  // Create an array of images (in a real app, this would come from the product data)
-  // For demo, we'll use the same image multiple times
   const productImages = [
     product.imageUrl,
-    product.imageUrl, // In a real app these would be different images
+    product.imageUrl,
     product.imageUrl,
   ];
   

@@ -19,11 +19,7 @@ const AddProductPage: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // In a real app, this would upload the file to a storage service and get back a URL
-    // For this demo, we'll just simulate with a placeholder URL if a file is selected
     if (e.target.files && e.target.files[0]) {
-      // In a real app, you would upload the file and get back a URL
-      // For demo purposes, we'll use a placeholder image
       setImageUrl('https://images.pexels.com/photos/1037992/pexels-photo-1037992.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
     }
   };
@@ -38,7 +34,6 @@ const AddProductPage: React.FC = () => {
     
     setIsSubmitting(true);
     
-    // In a real app, this would be an API call to create the product
     setTimeout(() => {
       const newProduct: Product = {
         id: `product-${Date.now()}`,
@@ -54,10 +49,7 @@ const AddProductPage: React.FC = () => {
         reviews: 0,
         createdAt: new Date().toISOString(),
       };
-      
-      // For demo, we would add this to our products array
-      // mockProducts.push(newProduct);
-      
+            
       setIsSubmitting(false);
       navigate('/seller');
     }, 1000);

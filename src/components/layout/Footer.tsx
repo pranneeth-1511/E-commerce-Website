@@ -41,7 +41,6 @@ const Footer: React.FC = () => {
             </div>
           </div>
           
-          {/* Quick Links */}
           <div>
             <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
             <ul className="space-y-2">
@@ -73,7 +72,6 @@ const Footer: React.FC = () => {
             </ul>
           </div>
           
-          {/* Customer Service */}
           <div>
             <h3 className="text-lg font-semibold text-white mb-4">Customer Service</h3>
             <ul className="space-y-2">
@@ -105,7 +103,6 @@ const Footer: React.FC = () => {
             </ul>
           </div>
           
-          {/* Contact Info */}
           <div>
             <h3 className="text-lg font-semibold text-white mb-4">Contact Us</h3>
             <ul className="space-y-3">
